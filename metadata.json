@@ -1,0 +1,7 @@
+{
+  "name": "GTA Roof Guard: Emergency Dispatch AI",
+  "description": "An emergency roofer dispatch agent designed to connect GTA homeowners with 24/7 roofing crews instantly during crises.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
