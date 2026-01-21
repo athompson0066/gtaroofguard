@@ -1,13 +1,13 @@
 
 import React, { useState } from 'react';
-import { SafetyBanner } from './components/SafetyBanner.js';
-import { Header } from './components/Header.js';
-import { Chat } from './components/Chat.js';
-import { HowItWorks } from './components/HowItWorks.js';
-import { AboutUs } from './components/AboutUs.js';
-import { ContactUs } from './components/ContactUs.js';
-import { AddListing } from './components/AddListing.js';
-import { AdminSection } from './components/AdminSection.js';
+import { SafetyBanner } from './components/SafetyBanner';
+import { Header } from './components/Header';
+import { Chat } from './components/Chat';
+import { HowItWorks } from './components/HowItWorks';
+import { AboutUs } from './components/AboutUs';
+import { ContactUs } from './components/ContactUs';
+import { AddListing } from './components/AddListing';
+import { AdminSection } from './components/AdminSection';
 
 const App: React.FC = () => {
   const [currentPage, setCurrentPage] = useState('home');
@@ -28,7 +28,6 @@ const App: React.FC = () => {
           <>
             {/* Hero Section */}
             <header className="bg-gray-900 text-white relative overflow-hidden py-24 lg:py-32">
-              {/* Background Overlay Pattern */}
               <div className="absolute inset-0 opacity-10 pointer-events-none">
                 <div className="grid grid-cols-12 h-full">
                   {[...Array(48)].map((_, i) => (
@@ -73,11 +72,7 @@ const App: React.FC = () => {
                 </div>
               </div>
             </header>
-
-            {/* How It Works Section */}
             <HowItWorks />
-
-            {/* Trust & Features */}
             <section className="py-20 bg-white">
               <div className="container mx-auto px-6">
                 <div className="grid md:grid-cols-3 gap-12 text-center lg:text-left">
@@ -114,12 +109,9 @@ const App: React.FC = () => {
     <div className="min-h-screen flex flex-col bg-gray-50 selection:bg-orange-500 selection:text-white">
       <SafetyBanner />
       <Header onNavigate={setCurrentPage} currentPage={currentPage} />
-      
       <main className="flex-1">
         {renderPage()}
       </main>
-
-      {/* Liability Footer */}
       <footer className="bg-white py-16 border-t border-gray-100">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center space-y-6">
@@ -127,11 +119,6 @@ const App: React.FC = () => {
             <p className="text-xs text-gray-500 leading-relaxed font-medium">
               GTA Roof Guard is an AI-powered dispatch and estimation tool. While we recommend vetted 24/7 roofing professionals, any contracting, pricing, and service guarantees are strictly between the homeowner and the respective contractor. GTA Roof Guard does not perform repairs or provide insurance binding. <strong>NEVER CLIMB ONTO YOUR ROOF DURING A STORM.</strong> If you see fire or smoke, or if someone is injured, call 911 immediately.
             </p>
-            <div className="pt-6 flex justify-center gap-6 border-t border-gray-50">
-               <span className="text-[10px] font-bold text-gray-300 uppercase tracking-widest">Toronto, ON</span>
-               <span className="text-[10px] font-bold text-gray-300 uppercase tracking-widest">Est. 2025</span>
-               <span className="text-[10px] font-bold text-gray-300 uppercase tracking-widest">Licensed Network</span>
-            </div>
           </div>
         </div>
       </footer>
