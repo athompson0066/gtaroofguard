@@ -1,6 +1,6 @@
 
 import { GoogleGenAI, Type } from "@google/genai";
-import { ChatMessage, LocationState, Roofer, GeneratedEmail, ListingStrategy, EstimationResult } from "../types";
+import { ChatMessage, LocationState, Roofer, GeneratedEmail, ListingStrategy, EstimationResult } from "../types.js";
 
 const SYSTEM_INSTRUCTION = `
 You are the "GTA Emergency Roof Response Unit" Crisis Coordinator.
@@ -82,8 +82,15 @@ JSON Structure:
 }
 `;
 
+const getApiKey = () => {
+  if (typeof process !== 'undefined' && process.env && process.env.API_KEY) {
+    return process.env.API_KEY;
+  }
+  return (window as any).process?.env?.API_KEY;
+};
+
 export async function engagePartnerSales(message: string, history: ChatMessage[]) {
-  const apiKey = typeof process !== 'undefined' ? process.env.API_KEY : (window as any).process?.env?.API_KEY;
+  const apiKey = getApiKey();
   if (!apiKey) throw new Error("API Key is missing.");
 
   const ai = new GoogleGenAI({ apiKey });
@@ -118,7 +125,7 @@ export async function sendEmergencyMessage(
   history: ChatMessage[],
   location?: LocationState
 ) {
-  const apiKey = typeof process !== 'undefined' ? process.env.API_KEY : (window as any).process?.env?.API_KEY;
+  const apiKey = getApiKey();
   if (!apiKey) throw new Error("API Key is missing.");
 
   const ai = new GoogleGenAI({ apiKey });
@@ -178,7 +185,7 @@ export async function sendEmergencyMessage(
 }
 
 export async function generateOutreachEmail(companyName: string, city: string, website?: string, instructions?: string): Promise<GeneratedEmail> {
-  const apiKey = typeof process !== 'undefined' ? process.env.API_KEY : (window as any).process?.env?.API_KEY;
+  const apiKey = getApiKey();
   if (!apiKey) throw new Error("API Key missing.");
 
   const ai = new GoogleGenAI({ apiKey });
@@ -229,7 +236,7 @@ export async function generateOutreachEmail(companyName: string, city: string, w
 }
 
 export async function generateNetworkStrategy(marketContext: string): Promise<ListingStrategy> {
-  const apiKey = typeof process !== 'undefined' ? process.env.API_KEY : (window as any).process?.env?.API_KEY;
+  const apiKey = getApiKey();
   if (!apiKey) throw new Error("API Key missing.");
 
   const ai = new GoogleGenAI({ apiKey });
@@ -258,7 +265,7 @@ export async function generateNetworkStrategy(marketContext: string): Promise<Li
 }
 
 export async function getRoofingEstimate(data: { size: number, material: string, complexity: string, city: string }): Promise<EstimationResult> {
-  const apiKey = typeof process !== 'undefined' ? process.env.API_KEY : (window as any).process?.env?.API_KEY;
+  const apiKey = getApiKey();
   if (!apiKey) throw new Error("API Key missing.");
 
   const ai = new GoogleGenAI({ apiKey });

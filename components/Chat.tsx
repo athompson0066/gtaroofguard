@@ -1,9 +1,9 @@
 
 import React, { useState, useRef, useEffect } from 'react';
-import { sendEmergencyMessage } from '../services/gemini';
-import { ChatMessage, LocationState, Roofer } from '../types';
-import { RooferResult } from './RooferResult';
-import { CostEstimator } from './CostEstimator';
+import { sendEmergencyMessage } from '../services/gemini.js';
+import { ChatMessage, LocationState, Roofer } from '../types.js';
+import { RooferResult } from './RooferResult.js';
+import { CostEstimator } from './CostEstimator.js';
 
 export const Chat: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'dispatch' | 'estimator'>('dispatch');

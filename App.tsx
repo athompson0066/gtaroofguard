@@ -1,13 +1,13 @@
 
 import React, { useState } from 'react';
-import { SafetyBanner } from './components/SafetyBanner';
-import { Header } from './components/Header';
-import { Chat } from './components/Chat';
-import { HowItWorks } from './components/HowItWorks';
-import { AboutUs } from './components/AboutUs';
-import { ContactUs } from './components/ContactUs';
-import { AddListing } from './components/AddListing';
-import { AdminSection } from './components/AdminSection';
+import { SafetyBanner } from './components/SafetyBanner.js';
+import { Header } from './components/Header.js';
+import { Chat } from './components/Chat.js';
+import { HowItWorks } from './components/HowItWorks.js';
+import { AboutUs } from './components/AboutUs.js';
+import { ContactUs } from './components/ContactUs.js';
+import { AddListing } from './components/AddListing.js';
+import { AdminSection } from './components/AdminSection.js';
 
 const App: React.FC = () => {
   const [currentPage, setCurrentPage] = useState('home');
